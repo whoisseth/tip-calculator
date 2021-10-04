@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./style.css">
+    <!-- <script src="./script.js" differ></script> -->
+    <script defer src="./script.js"></script>
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <style>
+        .attribution {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <img class="logo" src="./images/logo.svg" alt="logo">
+    <div class="container">
+
+        <div class="cal-box">
+            <div class="bill-box ">
+                <label class="label " for="bill">Bill</label>
+                <div class="input-container margin-bottom ">
+                    <img src="./images/icon-dollar.svg" alt="">
+                    <input type="number" name="" id="bill" placeholder="0">
+
+                </div>
+            </div>
+            <div class="select-tip-box">
+                <label for="select-tip">Select Tip %</label>
+                <div class="tips margin-bottom">
+                    <div class="tip-btn" id="5%tip">5%</div>
+                    <div class="tip-btn" id="10%tip">10%</div>
+                    <div class="tip-btn" id="15%tip">15%</div>
+                    <div class="tip-btn" id="20%tip">20%</div>
+                    <div class="tip-btn" id="50%tip">50%</div>
+
+                    <span class="tip-btn custom-btn" contenteditable="true" f="Custom" type="number"></span>
+
+
+                    <!-- style="outline:0px; -->
+                    <!-- <input type="number" class="tip-btn custom-btn" placeholder="Custom"> -->
+
+                </div>
+            </div>
+            <div class="num-of-pepole-box">
+                <label for="num-of-people">Number of People</label>
+                <div class="input-container">
+                    <img src="./images/icon-person.svg" alt="">
+                    <input type="number" name="" id="num-of-people" placeholder="0">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="result-box">
+            <div class="tip-cal-box">
+                <div class="lable-box">
+                    <div class="tip-amount-label"> Tip Amount </div>
+                    <div class="tip-amount-person"> / person </div>
+                </div>
+                <div class="tip-amount-box"> <img src="./images/icon-dollar-light-green.svg" alt=""> <span id="tipAmount">0.00</span> </div>
+            </div>
+            <!--  -->
+            <div class="tip-cal-box ">
+                <div class="lable-box">
+                    <div class="tip-amount-label"> Total </div>
+                    <div class="tip-amount-person"> / person </div>
+                </div>
+                <div class="tip-amount-box"><img src="./images/icon-dollar-light-green.svg" alt=""> <span id="total">0.00</span> </div>
+            </div>
+            <div class="rset-btn "> RESET</div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+    <!-- Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount / person Total / person Reset -->
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="https://github.com/utkarshseth2019">Utkarsh Seth</a>.
+    </div>
+
+</body>
+
+</html>
