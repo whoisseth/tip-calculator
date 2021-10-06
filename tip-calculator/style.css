@@ -158,9 +158,14 @@ label,
     font-weight: 700;
 }
 
-div.tip-btn:hover,
-.rset-btn:hover {
-    background-color: hsl(172, 67%, 45%);
+.tip-btn-deactive {
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(189, 41%, 97%);
+    /* color: red; */
+}
+
+div.tip-btn:hover {
+    /* background-color: hsl(172, 67%, 45%); */
     background-color: rgba(38, 192, 171, 0.5);
     color: hsl(183, 100%, 15%);
     cursor: pointer;
@@ -234,16 +239,26 @@ div.tip-btn:hover,
 
 .rset-btn {
     background-color: rgba(1, 119, 126, 0.6);
-    display: inline;
-    color: hsl(183, 100%, 15%);
     color: rgba(0, 73, 77, 0.426);
-    /* color: hsl(172, 67%, 45%); */
     font-size: 2rem;
+    /* color: hsl(172, 67%, 45%); */
     font-weight: 700;
     text-align: center;
     border-radius: 5px;
     padding: 0.3em 0;
     margin-top: 8rem;
+}
+
+.rset-btn:hover {
+    background-color: rgba(96, 241, 217, 0.623);
+    color: hsla(183, 100%, 15%, 0.87);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.active-Reset {
+    background-color: hsl(172, 74%, 50%);
+    color: hsl(183, 100%, 15%);
 }
 
 
