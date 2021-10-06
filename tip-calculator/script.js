@@ -1,297 +1,118 @@
-/* 
- --FONT SIZE (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
-
---SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 
-
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    /* font-size: 10px; */
-    /* 10px / 16px =0.625 = 62.5% */
-    font-size: 62.5%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    background-color: hsl(185, 41%, 84%);
-    /* padding: 10rem; */
-    font-family: "Space Mono", sans-serif;
-}
-
-.logo {
-    height: 4.8rem;
-    margin-bottom: 8rem;
-    margin-bottom: 2rem;
-    margin-top: 16rem;
-    margin-top: 4rem;
-}
-
-.container {
-    background-color: hsl(0, 0%, 100%);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 2.4rem;
-    border-radius: 20px;
-    transition: all 0.5s;
-}
-
-.cal-box {
-    /* border: 2px solid red; */
-    margin-right: 4rem;
-    margin-left: 2rem;
-    margin: 0 2rem;
-    transition: all 0.5s;
-}
-
-.caculation-box {
-    padding: 2.4rem;
-    /* background-color: aqua; */
-}
-
-.cal-box label {
-    color: hsl(186, 14%, 43%);
-    display: block;
-    margin-bottom: 0.8rem;
-    position: relative;
-}
-
-.input-container {
-    background-color: hsl(189, 41%, 97%);
-    display: flex;
-    border-radius: 5px;
-    /* overflow: hidden; */
-    align-items: center;
-    /* position: absolute; */
-}
-
-.input-container img {
-    height: 1.4rem;
-    margin-left: 1.5rem;
-    position: absolute;
-    z-index: 999;
-}
-
-.input-container input {
-    position: relative;
-    border: none;
-    background-color: inherit;
-    text-align: right;
-    width: 100%;
-    font-size: 2rem;
-    font-family: inherit;
-    font-weight: 700;
-    outline-color: hsl(172, 67%, 45%);
-    color: hsl(183, 100%, 15%);
-    border-radius: inherit;
-    cursor: pointer;
-    padding: 0.4rem 0.2rem;
-    /* background-color: red; */
-    padding-right: 1rem;
-}
-
-.input-container input::placeholder {
-    color: rgba(127, 156, 159, 0.553);
-    font-weight: inherit;
-    padding-right: 1rem;
-}
+ 'use strict'
+ const bill = document.querySelector('#bill');
+ const numOfPeople = document.querySelector('#num-of-people');
+ const tipAmount = document.querySelector('#tipAmount');
+ const total = document.querySelector('#total');
+ let resetBtn = document.querySelector('.rset-btn');
 
 
-/* .input-container label::after { */
+ const tipBtn = document.querySelectorAll('.tip-btn')
+ let storeTipValue;
 
-.result-box {
-    background-color: hsl(183, 100%, 15%);
-    border-radius: 15px;
-}
+ //  const tipBtn = document.querySelectorAll('.tips');
 
-label,
-.tip-amount-label {
-    font-size: 1.4rem;
-    font-weight: 700;
-    white-space: nowrap;
-}
+ const tip5p = document.getElementById("5%tip");
+ const tip10p = document.getElementById("10%tip");
+ const tip15p = document.getElementById("15%tip");
+ const tip20p = document.getElementById("20%tip");
+ const tip50p = document.getElementById("50%tip");
+ // const tip5p = document.getElementById("5%tip");
 
-.margin-bottom {
-    margin-bottom: 3rem;
-    /* margin-bottom: 2.4rem; */
-}
+ let Custmbill;
+ let storeTipAmount;
+ let storeTotal;
 
-.tips {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-    font-size: 2rem;
-    font-weight: 500;
-    border: none;
-    outline-color: red;
-}
+ function activeResetBtn() {
+     if (bill.value != 0 || numOfPeople.value != 0) {
+         resetBtn.classList.add('active-Reset')
+     }
+ }
 
-.tips input {
-    /* width: 10%; */
-}
+ function calculateTip() {;
 
-.tip-btn {
-    color: hsl(189, 41%, 97%);
-    /* padding: 0.8rem 1.6rem; */
-    padding: 0.6rem 0.4rem;
-    text-align: center;
-    border-radius: 5px;
-    /* width: 9rem; */
-    background-color: hsl(183, 100%, 15%);
-    cursor: pointer;
-    transition: all 0.3s;
-}
+     if (bill.value == 0) {
+         console.log("error1");
+     } else if (numOfPeople.value == 0) {
+         console.log("error2");
+     } else {
+         //  Tip Amount
+         storeTipAmount = (bill.value / numOfPeople.value) * storeTipValue;
+         tipAmount.innerHTML = storeTipAmount.toFixed(2)
+             //Total
+         storeTotal = bill.value / numOfPeople.value + Number(tipAmount.innerHTML)
+         total.innerHTML = storeTotal.toFixed(2);
+         activeResetBtn()
 
-.tip-btn-active {
-    background-color: hsl(172, 67%, 45%);
-    color: hsl(183, 100%, 15%);
-    font-weight: 700;
-}
+     }
 
-.tip-btn-deactive {
-    background-color: hsl(183, 100%, 15%);
-    color: hsl(189, 41%, 97%);
-    /* color: red; */
-}
+ }
 
-div.tip-btn:hover {
-    /* background-color: hsl(172, 67%, 45%); */
-    background-color: rgba(38, 192, 171, 0.5);
-    color: hsl(183, 100%, 15%);
-    cursor: pointer;
-    transition: all 0.3s;
-}
+ function activBtn(i, btnNo) {
+     if (bill.value == 0) {
+         console.log("error1");
+     } else if (numOfPeople.value == 0) {
+         console.log("error2");
+     } else {
+         tipBtn[i].classList.add("tip-btn-deactive")
+         tipBtn[btnNo].classList.remove("tip-btn-deactive")
+         tipBtn[btnNo].classList.add("tip-btn-active")
+     }
 
-.custom-btn {
-    background-color: hsl(189, 41%, 97%);
-    border: none;
-    color: hsl(183, 100%, 15%);
-    font-weight: 700;
-    font-family: inherit;
-    font-size: inherit;
-    outline-color: hsl(172, 67%, 45%);
-    /* text-align: right; */
-    /* width: 12rem; */
-}
-
-[contenteditable="true"]:empty:not(:focus):before {
-    content: attr(data-text);
-}
-
-.custom-btn[data-text] {
-    /* color: ; */
-    font-weight: 700;
-    font-size: 2rem;
-    font-family: "Space Mono", sans-serif;
-    color: rgba(0, 73, 77, 0.708);
-}
-
-.result-box .tip-amount-label {
-    color: hsl(189, 41%, 97%);
-}
-
-.result-box {
-    padding: 2.4rem 3rem;
-    display: grid;
-}
-
-.tip-cal-box {
-    display: flex;
-    /* gap: 4rem; */
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-
-.tip-amount-person {
-    font-size: 1.2rem;
-    color: hsl(184, 14%, 56%);
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.tip-amount-box {
-    color: hsl(172, 67%, 45%);
-    text-align: right;
-    font-size: 4rem;
-    font-weight: 700;
-    margin-left: 6.4rem;
-    /* margin-left: 8rem; */
-    white-space: nowrap;
-}
-
-.tip-amount-box img {
-    font-weight: 700;
-    height: 3rem;
-    margin-right: -2.3rem;
-    display: inline;
-}
-
-.rset-btn {
-    background-color: rgba(1, 119, 126, 0.6);
-    color: rgba(0, 73, 77, 0.426);
-    font-size: 2rem;
-    /* color: hsl(172, 67%, 45%); */
-    font-weight: 700;
-    text-align: center;
-    border-radius: 5px;
-    padding: 0.3em 0;
-    margin-top: 8rem;
-}
-
-.rset-btn:hover {
-    background-color: rgba(96, 241, 217, 0.623);
-    color: hsla(183, 100%, 15%, 0.87);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.active-Reset {
-    background-color: hsl(172, 74%, 50%);
-    color: hsl(183, 100%, 15%);
-}
+ }
 
 
-/*
-Mobile view
-800px */
+ for (let i = 0; i < tipBtn.length; i++) {
+     tipBtn[0].addEventListener('click', () => {
+         storeTipValue = 0.15
+         calculateTip()
+         activBtn(i, 0)
 
-@media (max-width: 50em) {
-    .cal-box {
-        margin-bottom: 3.2rem;
-    }
-    .container {
-        grid-template-columns: 1fr;
-    }
-    html {
-        font-size: 60%;
-    }
-}
+     });
 
 
-/* 400px  */
+     tipBtn[1].addEventListener('click', () => {
+         storeTipValue = 0.10
+         calculateTip()
+         activBtn(i, 1)
 
-@media (max-width: 25em) {
-    html {
-        font-size: 50%;
-    }
-}
+     });
 
 
-/* 300px  */
+     tipBtn[2].addEventListener('click', () => {
+         storeTipValue = 0.15
+         calculateTip()
 
-@media (max-width: 18.75em) {
-    html {
-        font-size: 40%;
-    }
-}
+     });
+
+
+     tipBtn[3].addEventListener('click', () => {
+         storeTipValue = 0.20
+         calculateTip()
+
+     });
+
+
+     tipBtn[4].addEventListener('click', () => {
+         storeTipValue = 0.50
+         calculateTip()
+
+     });
+
+
+ }
+
+
+ resetBtn.addEventListener('click', () => {
+
+     bill.value = " "
+     numOfPeople.value = " "
+     tipAmount.innerHTML = "0.00 "
+     total.innerHTML = "0.00 "
+
+     resetBtn.classList.remove('active-Reset')
+     for (let i = 0; i < tipBtn.length; i++) {
+         tipBtn[i].classList.add("tip-btn-deactive")
+
+     }
+
+ })
