@@ -81,7 +81,6 @@
      tipBtn[2].addEventListener('click', () => {
          storeTipValue = 0.15
          calculateTip()
-activBtn(i, 2)
 
      });
 
@@ -89,7 +88,6 @@ activBtn(i, 2)
      tipBtn[3].addEventListener('click', () => {
          storeTipValue = 0.20
          calculateTip()
-activBtn(i, 3)
 
      });
 
@@ -97,7 +95,14 @@ activBtn(i, 3)
      tipBtn[4].addEventListener('click', () => {
          storeTipValue = 0.50
          calculateTip()
-activBtn(i, 4)
+
+     });
+
+
+     tipBtn[5].addEventListener('click', () => {
+         storeTipValue = document.querySelector(".custom-btn").innerText
+         calculateTip()
+
      });
 
 
