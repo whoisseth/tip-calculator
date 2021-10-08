@@ -63,7 +63,7 @@
 
  for (let i = 0; i < tipBtn.length; i++) {
      tipBtn[0].addEventListener('click', () => {
-         storeTipValue = 0.15
+         storeTipValue = 0.05
          calculateTip()
          activBtn(i, 0)
 
@@ -100,7 +100,7 @@
 
 
      tipBtn[5].addEventListener('click', () => {
-         storeTipValue = document.querySelector(".custom-btn").innerText
+         storeTipValue = (document.querySelector(".custom-btn").innerText)/100
          calculateTip()
 
      });
